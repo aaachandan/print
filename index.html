@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ray Services - Printing</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9fafb;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s ease-in-out;
+    }
+    header {
+      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 10px;
+      text-align: center;
+      animation: fadeInDown 1s ease-out;
+    }
+    .header-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .header-logo img {
+      height: 40px;
+    }
+    .header-logo span {
+      font-size: 26px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+    header h2 {
+      margin: 5px 0 0;
+      font-size: 18px;
+      font-weight: 300;
+      color: #cfd8dc;
+    }
+    .container {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      animation: fadeInUp 1s ease-out;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background: #37474f;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f1f1f1;
+    }
+    .info-box {
+      background: #e0f7fa;
+      border-left: 5px solid #00796b;
+      padding: 15px;
+      margin-top: 30px;
+    }
+    .form-section {
+      margin-top: 30px;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    #location {
+      background-color: #f9f9f9;
+    }
+    button {
+      background: #25D366;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #1ebe5d;
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .header-logo span {
+        font-size: 20px;
+      }
+      header h2 {
+        font-size: 15px;
+      }
+      th, td {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-logo">
+      <img src="gallery/logo.png" alt="Ray Services Logo">
+      <span>Ray Services</span>
+    </div>
+    <h2>Printing & Installation Rates</h2>
+  </header>
+
+  <div class="container">
+    <h2>प्रिंटिंग दरें (Per Sq. Ft.)</h2>
+    <table>
+      <tr>
+        <th>प्रिंटिंग प्रकार</th>
+        <th>दर (₹)</th>
+      </tr>
+      <tr><td>Normal Flex</td><td>12</td></tr>
+      <tr><td>Star Flex</td><td>18</td></tr>
+      <tr><td>Vinyl (Plain)</td><td>35</td></tr>
+      <tr><td>Vinyl + Sunboard</td><td>70</td></tr>
+      <tr><td>Backlit Flex</td><td>45</td></tr>
+      <tr><td>Glow Sign Board</td><td>80</td></tr>
+    </table>
+
+    <div class="info-box">
+      <strong>इंस्टॉलेशन चार्ज:</strong><br>
+      ● Flex/Vinyl: ₹10–₹20 प्रति वर्ग फुट<br>
+      ● Glow Sign: ₹200–₹500 प्रति बोर्ड<br>
+      ● फिटिंग और ट्रेवल चार्ज अलग से लागू हो सकते हैं।
+    </div>
+
+    <div class="form-section">
+      <h2>अपना ऑर्डर डिटेल भेजें</h2>
+      <form id="printForm">
+        <label>नाम:</label>
+        <input type="text" id="name" placeholder="अपना नाम भरें" required>
+
+        <label>मोबाइल नंबर:</label>
+        <input type="tel" id="mobile" placeholder="10 अंकों का मोबाइल नंबर" required>
+
+        <label>स्थान:</label>
+        <input list="locationList" id="location" placeholder="जैसे: 5km, 10km या टाइप करें" required>
+        <datalist id="locationList">
+          <option value="5km">
+          <option value="10km">
+          <option value="15km">
+          <option value="20km">
+        </datalist>
+
+        <label>प्रिंटिंग प्रकार चुनें:</label>
+        <select id="type" required>
+          <option value="">-- चयन करें --</option>
+          <option value="Normal Flex|12">Normal Flex - ₹12</option>
+          <option value="Star Flex|18">Star Flex - ₹18</option>
+          <option value="Vinyl Plain|35">Vinyl Plain - ₹35</option>
+          <option value="Vinyl + Sunboard|70">Vinyl + Sunboard - ₹70</option>
+          <option value="Backlit Flex|45">Backlit Flex - ₹45</option>
+          <option value="Glow Sign Board|80">Glow Sign Board - ₹80</option>
+        </select>
+
+        <label>आवश्यक क्षेत्रफल (Sq. Ft.):</label>
+        <input type="number" id="area" placeholder="उदा: 50" required>
+
+        <label>कुल कीमत:</label>
+        <input type="text" id="total" readonly style="background:#e0f0e0;">
+
+        <label>अतिरिक्त जानकारी:</label>
+        <textarea id="extra" placeholder="कोई विशेष निर्देश"></textarea>
+
+        <button type="submit">WhatsApp पर भेजें</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const areaInput = document.getElementById("area");
+    const typeSelect = document.getElementById("type");
+    const totalInput = document.getElementById("total");
+
+    function calculateTotal() {
+      let selected = typeSelect.value.split('|');
+      if (selected.length === 2 && areaInput.value) {
+        let rate = parseFloat(selected[1]);
+        let area = parseFloat(areaInput.value);
+        let total = rate * area;
+        totalInput.value = `₹ ${total.toFixed(2)}`;
+      } else {
+        totalInput.value = "";
+      }
+    }
+
+    areaInput.addEventListener("input", calculateTotal);
+    typeSelect.addEventListener("change", calculateTotal);
+
+    document.getElementById('printForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let name = document.getElementById('name').value;
+      let mobile = document.getElementById('mobile').value;
+      let location = document.getElementById('location').value;
+      let type = document.getElementById('type').value.split('|')[0];
+      let area = document.getElementById('area').value;
+      let total = document.getElementById('total').value;
+      let extra = document.getElementById('extra').value;
+
+      let message = `👋 नमस्ते!\n\nमैं प्रिंटिंग सर्विस के लिए जानकारी चाहता हूँ:\n\nनाम: ${name}\nमोबाइल: ${mobile}\nस्थान: ${location}\nप्रिंटिंग: ${type}\nक्षेत्रफल: ${area} Sq.Ft.\nकुल कीमत: ${total}\nअतिरिक्त जानकारी: ${extra}`;
+
+      let whatsappURL = `https://wa.me/917772910632?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, '_blank');
+    });
+  </script>
+</body>
+</html>
