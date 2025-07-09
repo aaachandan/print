@@ -4,49 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ray Services - Printing</title>
-
-  <!-- ✅ Stylish Poppins Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #f9fafb;
       margin: 0;
       padding: 0;
-      transition: all 0.3s ease-in-out;
     }
-
     header {
       background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
       color: white;
-      padding: 10px;
+      padding: 15px;
       text-align: center;
-      animation: fadeInDown 1s ease-out;
     }
-
-    .header-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+    header h1 {
+      margin: 0;
+      font-size: 24px;
     }
-
-    .header-logo span {
-      font-size: 30px;
-      font-weight: 600;
-      color: #ffffff;
-      font-family: 'Poppins', sans-serif;
-      letter-spacing: 1px;
-    }
-
-    header h2 {
-      margin: 5px 0 0;
-      font-size: 18px;
-      font-weight: 300;
-      color: #cfd8dc;
-    }
-
     .container {
       padding: 20px;
       max-width: 1000px;
@@ -54,41 +28,55 @@
       background: white;
       border-radius: 8px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      animation: fadeInUp 1s ease-out;
     }
-
-    table {
+    .price-table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
     }
-
-    th, td {
+    .price-table th, .price-table td {
       border: 1px solid #ddd;
       padding: 12px;
       text-align: center;
+      font-weight: bold;
     }
-
-    th {
+    .price-table th {
       background: #37474f;
       color: white;
     }
-
-    tr:nth-child(even) {
+    .price-table tr:nth-child(even) {
       background-color: #f1f1f1;
     }
-
-    .info-box {
-      background: #e0f7fa;
-      border-left: 5px solid #00796b;
-      padding: 15px;
+    .info-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
       margin-top: 30px;
     }
-
+    .info-box {
+      flex: 1;
+      min-width: 300px;
+      background: #e3f2fd;
+      border-left: 5px solid #1976d2;
+      padding: 20px;
+      border-radius: 6px;
+    }
+    .info-box h2 {
+      color: #0d47a1;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .info-box ul {
+      padding-left: 20px;
+      line-height: 1.8;
+      font-weight: bold;
+    }
+    .info-box p {
+      font-weight: bold;
+    }
     .form-section {
       margin-top: 30px;
     }
-
     input, select, textarea, button {
       width: 100%;
       padding: 10px;
@@ -97,81 +85,69 @@
       border-radius: 4px;
       font-size: 16px;
     }
-
-    #location {
-      background-color: #f9f9f9;
-    }
-
     button {
       background: #25D366;
       color: white;
       font-size: 18px;
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s ease;
+      margin-top: 15px;
     }
-
     button:hover {
       background: #1ebe5d;
-    }
-
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      .header-logo span {
-        font-size: 20px;
-      }
-
-      header h2 {
-        font-size: 15px;
-      }
-
-      th, td {
-        font-size: 13px;
-      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="header-logo">
-      <span>Ray Services</span>
-    </div>
-    <h2>Printing & Installation Rates</h2>
+    <h1>Ray Services - Printing & Installation Rates</h1>
   </header>
 
   <div class="container">
-    <h2>प्रिंटिंग दरें (Per Sq. Ft.)</h2>
-    <table>
+    <h2 style="text-align:center;">प्रिंटिंग प्रकार व दरें (Per Sq. Ft.)</h2>
+    <table class="price-table">
       <tr>
-        <th>प्रिंटिंग प्रकार</th>
-        <th>दर (₹)</th>
+        <th>सेवा</th><th>दर (₹)</th>
+        <th>सेवा</th><th>दर (₹)</th>
       </tr>
-      <tr><td>Normal Flex</td><td>12</td></tr>
-      <tr><td>Star Flex</td><td>18</td></tr>
-      <tr><td>Vinyl (Plain)</td><td>35</td></tr>
-      <tr><td>Vinyl + Sunboard</td><td>70</td></tr>
-      <tr><td>Backlit Flex</td><td>45</td></tr>
-      <tr><td>Glow Sign Board</td><td>200</td></tr>
+      <tr><td>Normal Flex</td><td>₹12</td>           <td>Star Flex</td><td>₹18</td></tr>
+      <tr><td>Vinyl (Plain)</td><td>₹35</td>         <td>Vinyl + Sunboard</td><td>₹80</td></tr>
+      <tr><td>ECO Solvent flex</td><td>₹70</td>      <td>Flex Board</td><td>₹50</td></tr>
+      <tr><td>Flex Board Star</td><td>₹60</td>       <td>Glow Sign Board (GSB)</td><td>₹200</td></tr>
+      <tr><td>GSB Repairing</td><td>₹80</td>         <td>ACP Elevation</td><td>₹200</td></tr>
+      <tr><td>ACP Repairing</td><td>₹90</td>         <td>GSB (Flatbed)</td><td>₹260</td></tr>
+      <tr><td>GSB (Double Side Flatbed)</td><td>₹280</td> <td>Poll Board (20 Feting extra)</td><td>₹170</td></tr>
+      <tr><td>Board Inspection</td><td>₹300</td><td></td><td></td></tr>
     </table>
 
-    <div class="info-box">
-      <strong>इंस्टॉलेशन चार्ज:</strong><br>
-      ● Flex/Vinyl: ₹10–₹20 प्रति वर्ग फुट<br>
-      ● Glow Sign: ₹200–₹500 प्रति बोर्ड<br>
-      ● फिटिंग और ट्रेवल चार्ज अलग से लागू हो सकते हैं।
+    <div class="info-boxes">
+      <div class="info-box">
+        <h2>💡 LED Board Services</h2>
+        <p>✅ LED Light Setup as per requirement<br>💰 Service Charge: ₹2000 (with SMPS)</p>
+      </div>
+
+      <div class="info-box">
+        <h2>🪪 ID कार्ड प्रिंटिंग सेट</h2>
+        <ul>
+          <li>PVC कार्ड – ₹26 (1000 पीस पर)</li>
+          <li>डोरी (Lanyard) – ₹30 (1000 पीस पर)</li>
+          <li>होल्डर – ₹6 (1000 पीस पर)</li>
+        </ul>
+        <p>📦 न्यूनतम ऑर्डर: 1000 सेट<br>🚚 थोक ऑर्डर पर विशेष छूट</p>
+      </div>
+
+      <div class="info-box">
+        <h2>🔧 इंस्टॉलेशन चार्ज</h2>
+        <ul>
+          <li>Flex/Vinyl: ₹10–₹20 प्रति वर्ग फुट</li>
+          <li>Glow Sign: ₹200–₹500 प्रति बोर्ड</li>
+        </ul>
+        <p>⚠️ फिटिंग और ट्रेवल चार्ज अलग से लागू हो सकते हैं।</p>
+      </div>
     </div>
 
     <div class="form-section">
-      <h2>अपना ऑर्डर डिटेल भेजें</h2>
+      <h2 style="text-align:center; font-size:22px; font-weight:bold;">अपना ऑर्डर डिटेल भेजें</h2>
       <form id="printForm">
         <label>नाम:</label>
         <input type="text" id="name" placeholder="अपना नाम भरें" required>
@@ -184,7 +160,6 @@
         <datalist id="locationList">
           <option value="5km">
           <option value="10km">
-          <option value="15km">
           <option value="20km">
         </datalist>
 
@@ -194,16 +169,28 @@
           <option value="Normal Flex|12">Normal Flex - ₹12</option>
           <option value="Star Flex|18">Star Flex - ₹18</option>
           <option value="Vinyl Plain|35">Vinyl Plain - ₹35</option>
-          <option value="Vinyl + Sunboard|70">Vinyl + Sunboard - ₹70</option>
-          <option value="Backlit Flex|45">Backlit Flex - ₹45</option>
-          <option value="Glow Sign Board|80">Glow Sign Board - ₹200</option>
+          <option value="Vinyl + Sunboard|80">Vinyl + Sunboard - ₹80</option>
+          <option value="ECO Solvent flex|70">ECO Solvent flex - ₹70</option>
+          <option value="Flex Board|50">Flex Board - ₹50</option>
+          <option value="Flex Board Star|60">Flex Board Star - ₹60</option>
+          <option value="Glow Sign Board|200">Glow Sign Board - ₹200</option>
+          <option value="GSB Repairing|80">GSB Repairing - ₹80</option>
+          <option value="ACP Elevation|200">ACP Elevation - ₹200</option>
+          <option value="ACP Repairing|90">ACP Repairing - ₹90</option>
+          <option value="GSB (Flatbed)|260">GSB (Flatbed) - ₹260</option>
+          <option value="GSB (Double Side Flatbed)|280">GSB (Double Side Flatbed) - ₹280</option>
+          <option value="Poll Board*20 Feting extra|170">Poll Board*20 Feting extra - ₹170</option>
+          <option value="Board Inspection|300">Board Inspection - ₹300</option>
+          <option value="ID Card PVC|26">ID Card (PVC) - ₹26</option>
+          <option value="Dori|30">Dori - ₹30</option>
+          <option value="Holder|6">Card Holder - ₹6</option>
         </select>
 
-        <label>आवश्यक क्षेत्रफल (Sq. Ft.):</label>
+        <label>आवश्यक क्षेत्रफल या पीस:</label>
         <input type="number" id="area" placeholder="उदा: 50" required>
 
         <label>कुल कीमत:</label>
-        <input type="text" id="total" readonly style="background:#e0f0e0;">
+        <input type="text" id="total" readonly style="background:#e0f0e0; font-weight:bold;">
 
         <label>अतिरिक्त जानकारी:</label>
         <textarea id="extra" placeholder="कोई विशेष निर्देश"></textarea>
@@ -243,7 +230,7 @@
       let total = document.getElementById('total').value;
       let extra = document.getElementById('extra').value;
 
-      let message = `👋 नमस्ते!\n\nमैं प्रिंटिंग सर्विस के लिए जानकारी चाहता हूँ:\n\nनाम: ${name}\nमोबाइल: ${mobile}\nस्थान: ${location}\nप्रिंटिंग: ${type}\nक्षेत्रफल: ${area} Sq.Ft.\nकुल कीमत: ${total}\nअतिरिक्त जानकारी: ${extra}`;
+      let message = `👋 नमस्ते!\n\nमैं सेवा के लिए जानकारी चाहता हूँ:\n\nनाम: ${name}\nमोबाइल: ${mobile}\nस्थान: ${location}\nसेवा: ${type}\nमात्रा/क्षेत्रफल: ${area}\nकुल कीमत: ${total}\nअतिरिक्त जानकारी: ${extra}`;
 
       let whatsappURL = `https://wa.me/917772910632?text=${encodeURIComponent(message)}`;
       window.open(whatsappURL, '_blank');
