@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ray Services - Printing</title>
   <style>
     body {
@@ -10,17 +10,35 @@
       background: #f9fafb;
       margin: 0;
       padding: 0;
+      font-size: 18px;
+      color: #222;
     }
     header {
       background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
       color: white;
-      padding: 15px;
+      padding: 25px 15px;
       text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 24px;
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.2;
     }
+    header p {
+      margin: 8px 0 0 0;
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    header p.email {
+      margin: 4px 0 0 0;
+      font-size: 18px;
+      font-weight: normal;
+      letter-spacing: normal;
+      color: #a9cce3;
+    }
+
     .container {
       padding: 20px;
       max-width: 1000px;
@@ -70,37 +88,100 @@
       padding-left: 20px;
       line-height: 1.8;
       font-weight: bold;
+      margin: 0;
     }
     .info-box p {
       font-weight: bold;
+      margin-top: 10px;
     }
     .form-section {
       margin-top: 30px;
     }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 18px;
+    }
     input, select, textarea, button {
       width: 100%;
       padding: 10px;
-      margin-top: 10px;
+      margin-top: 8px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      font-size: 16px;
+      font-size: 18px;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline-color: #1976d2;
+      border-color: #1976d2;
     }
     button {
+      height: 50px;
+      font-weight: 900;
+      font-size: 20px;
+      border: none;
       background: #25D366;
       color: white;
-      font-size: 18px;
-      font-weight: bold;
       cursor: pointer;
-      margin-top: 15px;
+      margin-top: 20px;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+      /* Animation */
+      animation: pulse 2.5s infinite;
     }
     button:hover {
       background: #1ebe5d;
+      animation: none; /* Pause animation on hover */
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 10px 10px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* Footer Styles */
+    footer {
+      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      border-top: 2px solid #37474f;
+    }
+    footer a {
+      color: #81d4fa;
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 5px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .info-boxes {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Ray Services - Printing & Installation Rates</h1>
+    <p>📞 7746969000 , 9098411044</p>
+    <p class="email">✉️ rayservices.cg@gmail.com</p>
   </header>
 
   <div class="container">
@@ -148,23 +229,38 @@
 
     <div class="form-section">
       <h2 style="text-align:center; font-size:22px; font-weight:bold;">अपना ऑर्डर डिटेल भेजें</h2>
-      <form id="printForm">
-        <label>नाम:</label>
-        <input type="text" id="name" placeholder="अपना नाम भरें" required>
+      <form id="printForm" novalidate>
+        <label for="name">नाम:</label>
+        <input type="text" id="name" name="name" placeholder="अपना नाम भरें" required />
 
-        <label>मोबाइल नंबर:</label>
-        <input type="tel" id="mobile" placeholder="10 अंकों का मोबाइल नंबर" required>
+        <label for="mobile">मोबाइल नंबर:</label>
+        <input
+          type="tel"
+          id="mobile"
+          name="mobile"
+          placeholder="10 अंकों का मोबाइल नंबर"
+          required
+          pattern="[6-9]{1}[0-9]{9}"
+          title="कृपया 10 अंकों का सही मोबाइल नंबर डालें"
+          maxlength="10"
+        />
 
-        <label>स्थान:</label>
-        <input list="locationList" id="location" placeholder="जैसे: 5km, 10km या टाइप करें" required>
+        <label for="location">स्थान:</label>
+        <input
+          list="locationList"
+          id="location"
+          name="location"
+          placeholder="जैसे: 5km, 10km या टाइप करें"
+          required
+        />
         <datalist id="locationList">
-          <option value="5km">
-          <option value="10km">
-          <option value="20km">
+          <option value="5km"></option>
+          <option value="10km"></option>
+          <option value="20km"></option>
         </datalist>
 
-        <label>प्रिंटिंग प्रकार चुनें:</label>
-        <select id="type" required>
+        <label for="type">प्रिंटिंग प्रकार चुनें:</label>
+        <select id="type" name="type" required>
           <option value="">-- चयन करें --</option>
           <option value="Normal Flex|12">Normal Flex - ₹12</option>
           <option value="Star Flex|18">Star Flex - ₹18</option>
@@ -187,28 +283,46 @@
           <option value="Holder|6">Card Holder - ₹6</option>
         </select>
 
-        <label>आवश्यक क्षेत्रफल या पीस:</label>
-        <input type="number" id="area" placeholder="उदा: 50" required>
+        <label for="area">आवश्यक क्षेत्रफल या पीस:</label>
+        <input
+          type="number"
+          id="area"
+          name="area"
+          placeholder="उदा: 50"
+          min="1"
+          required
+        />
 
-        <label>कुल कीमत:</label>
-        <input type="text" id="total" readonly style="background:#e0f0e0; font-weight:bold;">
+        <label for="total">कुल कीमत:</label>
+        <input
+          type="text"
+          id="total"
+          name="total"
+          readonly
+          style="background: #e0f0e0; font-weight: bold"
+        />
 
-        <label>अतिरिक्त जानकारी:</label>
-        <textarea id="extra" placeholder="कोई विशेष निर्देश"></textarea>
+        <label for="extra">अतिरिक्त जानकारी:</label>
+        <textarea id="extra" name="extra" placeholder="कोई विशेष निर्देश"></textarea>
 
         <button type="submit">WhatsApp पर भेजें</button>
       </form>
     </div>
   </div>
 
+  <footer>
+    © 2025 Ray Services by Dada | <a href="https://rayservices.netlify.app" target="_blank" rel="noopener noreferrer">Other Services</a>
+  </footer>
+
   <script>
     const areaInput = document.getElementById("area");
     const typeSelect = document.getElementById("type");
     const totalInput = document.getElementById("total");
+    const form = document.getElementById("printForm");
 
     function calculateTotal() {
-      let selected = typeSelect.value.split('|');
-      if (selected.length === 2 && areaInput.value) {
+      let selected = typeSelect.value.split("|");
+      if (selected.length === 2 && areaInput.value && !isNaN(areaInput.value)) {
         let rate = parseFloat(selected[1]);
         let area = parseFloat(areaInput.value);
         let total = rate * area;
@@ -221,20 +335,61 @@
     areaInput.addEventListener("input", calculateTotal);
     typeSelect.addEventListener("change", calculateTotal);
 
-    document.getElementById('printForm').addEventListener('submit', function(e) {
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
-      let name = document.getElementById('name').value;
-      let mobile = document.getElementById('mobile').value;
-      let location = document.getElementById('location').value;
-      let type = document.getElementById('type').value.split('|')[0];
-      let area = document.getElementById('area').value;
-      let total = document.getElementById('total').value;
-      let extra = document.getElementById('extra').value;
+
+      const name = form.name.value.trim();
+      const mobile = form.mobile.value.trim();
+      const location = form.location.value.trim();
+      const type = form.type.value.split("|")[0];
+      const area = form.area.value.trim();
+      const total = totalInput.value;
+      const extra = form.extra.value.trim();
+
+      const mobilePattern = /^[6-9]\d{9}$/;
+      if (!mobilePattern.test(mobile)) {
+        alert("कृपया 10 अंकों का सही मोबाइल नंबर डालें।");
+        form.mobile.focus();
+        return;
+      }
+
+      if (!name) {
+        alert("कृपया अपना नाम दर्ज करें।");
+        form.name.focus();
+        return;
+      }
+
+      if (!location) {
+        alert("कृपया स्थान दर्ज करें।");
+        form.location.focus();
+        return;
+      }
+
+      if (!type) {
+        alert("कृपया प्रिंटिंग प्रकार चुनें।");
+        form.type.focus();
+        return;
+      }
+
+      if (!area || isNaN(area) || Number(area) <= 0) {
+        alert("कृपया क्षेत्रफल या पीस सही दर्ज करें।");
+        form.area.focus();
+        return;
+      }
+
+      if (!total) {
+        alert("कृपया कुल कीमत की गणना करें।");
+        return;
+      }
 
       let message = `👋 नमस्ते!\n\nमैं सेवा के लिए जानकारी चाहता हूँ:\n\nनाम: ${name}\nमोबाइल: ${mobile}\nस्थान: ${location}\nसेवा: ${type}\nमात्रा/क्षेत्रफल: ${area}\nकुल कीमत: ${total}\nअतिरिक्त जानकारी: ${extra}`;
 
-      let whatsappURL = `https://wa.me/917772910632?text=${encodeURIComponent(message)}`;
-      window.open(whatsappURL, '_blank');
+      let whatsappURL = `https://wa.me/917746969000?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, "_blank");
+
+      form.reset();
+      totalInput.value = "";
+      form.name.focus();
     });
   </script>
 </body>
